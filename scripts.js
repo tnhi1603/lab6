@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 const tableBody = document.querySelector('#dataLog tbody');
-                tableBody.innerHTML = ''; // Clear existing data
+                tableBody.innerHTML = ''; 
 
                 const sortedFeeds = data.feeds.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-                const limitedFeeds = sortedFeeds.slice(0, 20);
+                const limitedFeeds = sortedFeeds.slice(0, 30);
 
                 limitedFeeds.forEach(feed => {
                     const row = document.createElement('tr');
@@ -36,8 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error fetching data:', error));
     }
 
-    fetchData(); // Fetch data when the page loads
-
-    // Optional: Auto-refresh data every 30 seconds
+    fetchData(); 
     setInterval(fetchData, 300);
 });
