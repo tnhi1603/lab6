@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const sortedFeeds = data.feeds.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-                sortedFeeds.forEach(feed => {
+                const limitedFeeds = sortedFeeds.slice(0, 20);
+
+                limitedFeeds.forEach(feed => {
                     const row = document.createElement('tr');
                     const timeCell = document.createElement('td');
                     const roomIDCell = document.createElement('td');
