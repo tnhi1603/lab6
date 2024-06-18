@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const sortedFeeds = data.feeds.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-                const limitedFeeds = sortedFeeds.slice(0, 30);
+                const limitedFeeds = sortedFeeds.slice(0, 40);
 
                 limitedFeeds.forEach(feed => {
                     const row = document.createElement('tr');
